@@ -1,6 +1,8 @@
 .symbol {
     font-family: 'Material Symbols Rounded';
     font-size: 1.5rem;
+    word-wrap: nowrap;
+    white-space: nowrap;
 }
 
 body > header button.symbol {
@@ -84,7 +86,8 @@ a:hover {
 .card-container article header button {
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
-    width: 30%;
+    width: 20%;
+    min-width: 4rem;
 }
 
 .card-container .img-holder {
@@ -114,6 +117,7 @@ a:hover {
     overflow: hidden;
     object-fit: cover;
     object-position: 50% 50%;
+    image-rendering: pixelated;
 }
 
 .card-container .img-holder p {

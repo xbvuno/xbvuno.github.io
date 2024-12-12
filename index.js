@@ -67,12 +67,7 @@ function saveSettings() {
 
 window.onload = function () {
     scale = parseInt(localStorage.getItem('scale'));
-    if (!scale)
-        scale = 10
-    
     smooting = localStorage.getItem('smoothing') == 'true';
-    if (!smooting)
-        smooting = false
     setTheme(localStorage.getItem('theme'))
     updateSettings()
 };
