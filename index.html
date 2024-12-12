@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>imgResizer</title>
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.yellow.min.css"
+    >
+    <link 
+        rel="stylesheet" 
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header class="container-fluid">
+        <div class="title">
+            <img src="icon.svg">
+            <hgroup>
+                <p>BVUNO'S</p>
+                <h2>imgResizer</h2>
+                <p></p>
+            </hgroup>
+        </div>
+        <div>
+            <button class="symbol" onclick="openSettings()">Settings</button>
+            <button class="symbol" id="theme-switch" onclick="switchTheme()">wb_sunny</button>
+        </div>
+    </header>
+    <dialog class="settings">
+        <article>
+            <header>
+                <button aria-label="Close" rel="prev" onclick="closeSettings()"></button>
+                <h4>Settings</h4>
+            </header>
+            <div>
+                <label>Scale</label>
+                <input 
+                    id="scale"
+                    type="number" 
+                    value="10"
+                    min="1"
+                    step="1"
+                >
+            </div>
+            <div>
+                <label>Smoothing</label>
+                <input 
+                    type="checkbox" 
+                    id="smoothing"
+                > 
+            </div>
+            <footer>
+                <a onclick="closeSettings()">Cancel</a>
+                <button onclick="saveSettings()">Save</button>
+            </footer>
+        </article>
+    </dialog>
+    <main class="container">
+        <div class="card-container">
+            <article id="img-scaled-down">
+                <header>
+                    <button disabled class="symbol">content_copy</button>
+                    <button disabled class="symbol">save</button>
+                </header>
+                <div class="img-holder">
+                    <p>Here will be the result downscaled to the original size</p>
+                </div>
+                <footer>
+                    <p>Original Size <span class="square-value"></span></p>
+                </footer>
+            </article>
+            <article id="img-source">
+                <header>
+                    <button id="paste" class="symbol">content_paste</button>
+                    <button id="open" class="symbol">folder_open</button>
+                    <input type="file" accept="image/jpeg, image/png, image/webp">
+                </header>
+                <div class="img-holder">
+                    <p>Drag or Paste</p>
+                </div>
+                <footer>
+                    <p>Source image</p>
+                </footer>
+            </article>
+            <article id="img-scaled-up">
+                <header>
+                    <button disabled class="symbol">content_copy</button>
+                    <button disabled class="symbol">save</button>
+                </header>
+                <div class="img-holder">
+                    <p>Here will be the result upscaled by</p>
+                    <span class="scale-value">10</span>
+                </div>
+                <footer>
+                    <p>Upscaled (x<span class="scale-value">10</span>)</p>
+                </footer>
+            </article>
+        </div>
+        <div class="settings-values container">
+            <p>Current scale: <span class="scale-value">10</span></p>
+            <a onclick="openSettings()">Edit</a>
+            <p>Smoothing: <span class="smoothing-value">disabled</span></p>
+        </div>
+    </main>
+    <footer class="container">
+        <h4>None of the data you enter is saved on any server, everything is only managed by your browser.</h4>
+    </footer>
+    <script src="index.js"></script>
+    <script src="square_size.js"></script>
+    <script src="get_source_img.js"></script>
+</body>
+</html>
